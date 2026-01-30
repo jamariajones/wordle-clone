@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+hr {
+    width: 100%;
+    max-width: 500px;
+    height: 1px;
+    border: none;
+    background-color: #878a8c;
+    margin: 0 auto 10px auto;
+}
+
+.header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#title {
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0.2rem;
+    margin: 0;
+}
+
+#board {
+    width: 350px;
+    height: 420px;
+    margin: 0 auto;
+    margin-top: 3px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tile {
+    /* grid */
+    border: 2px solid lightgrey;
+    width: 60px;
+    height: 60px;
+    margin: 2.5px;
+    perspective: 500px;
+    transform-style: preserve-3d;
+    box-sizing: border-box;
+
+    /* text */
+    color: black;
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.correct {
+    background-color: #6AAA64;
+    color: white;
+    border-color: #6AAA64;
+}
+
+.present {
+    background-color: #C9B458;
+    color: white;
+    border-color: #C9B458;
+}
+
+.absent {
+    background-color: #787C7E;
+    color: white;
+    border-color: #787C7E;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.key-tile {
+    width: 43px;
+    height: 58px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgrey;
+}
+
+.enter-key-tile,
+.backspace-key-tile {
+    width: 65px;
+    height: 58px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.key-tile.correct {
+    background-color: #6AAA64;
+    color: white;
+}
+
+.key-tile.present {
+    background-color: #C9B458;
+    color: white;
+}
+
+.key-tile.absent {
+    background-color: #787C7E;
+    color: white;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.tile.pop {
+  animation: pop 0.1s ease-in-out;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+
+.tile.flip {
+  animation: flip 0.6s ease forwards;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+.tile.shake {
+  animation: shake 0.3s ease;
+}
